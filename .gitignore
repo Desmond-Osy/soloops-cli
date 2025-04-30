@@ -44,3 +44,6 @@ docker-test/
 
 # Logs
 *.log
+
+# Misc
+.claude
