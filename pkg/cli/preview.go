@@ -1,0 +1,79 @@
+// Copyright 2025 SoloOps Contributors
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package cli
+
+import (
+	"fmt"
+	"os"
+	"os/exec"
+
+	"github.com/spf13/cobra"
+)
+
+var previewCmd = &cobra.Command{
+	Use:   "preview",
+	Short: "Preview infrastructure changes",
+	Long: `Runs 'terraform plan' to show what changes will be made.
+
+Requires:
+  - Terraform binary installed locally
+  - Generated Terraform files (run 'soloops generate' first)
+  - Cloud credentials configured (AWS_PROFILE, GOOGLE_CREDENTIALS, etc.)
+
+Optional:
+  - Install 'infracost' for cost estimates`,
+	RunE: runPreview,
+}
+
+func runPreview(cmd *cobra.Command, args []string) error {
+	// Check if infra directory exists
+	if _, err := os.Stat("infra"); os.IsNotExist(err) {
+		return fmt.Errorf("infra/ directory not found. Run 'soloops generate' first")
+	}
+
+	// Initialize Terraform if needed
+	tfInit := exec.Command("terraform", "init")
+	tfInit.Dir = "infra"
+	tfInit.Stdout = os.Stdout
+	tfInit.Stderr = os.Stderr
+
+	fmt.Println("Initializing Terraform...")
+	if err := tfInit.Run(); err != nil {
+		return fmt.Errorf("terraform init failed: %w", err)
+	}
+
+	// Run terraform plan
+	tfPlan := exec.Command("terraform", "plan")
+	tfPlan.Dir = "infra"
+	tfPlan.Stdout = os.Stdout
+	tfPlan.Stderr = os.Stderr
+
+	fmt.Println("\nRunning terraform plan...")
+	if err := tfPlan.Run(); err != nil {
+		return fmt.Errorf("terraform plan failed: %w", err)
+	}
+
+	// Try to run infracost if available
+	if _, err := exec.LookPath("infracost"); err == nil {
+		fmt.Println("\nGenerating cost estimate...")
+		costCmd := exec.Command("infracost", "breakdown", "--path", ".")
+		costCmd.Dir = "infra"
+		costCmd.Stdout = os.Stdout
+		costCmd.Stderr = os.Stderr
+		_ = costCmd.Run() // Don't fail if infracost errors
+	}
+
+	return nil
+}

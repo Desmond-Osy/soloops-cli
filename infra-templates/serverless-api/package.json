@@ -1,0 +1,19 @@
+{
+  "name": "serverless-api",
+  "version": "1.0.0",
+  "description": "Serverless API Lambda Function",
+  "main": "example-handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "zip -r function.zip example-handler.js node_modules package.json"
+  },
+  "keywords": [
+    "lambda",
+    "serverless",
+    "api"
+  ],
+  "author": "SoloOps",
+  "license": "Apache-2.0",
+  "dependencies": {},
+  "devDependencies": {}
+}
