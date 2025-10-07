@@ -1,4 +1,4 @@
-module github.com/soloops/soloops-cli
+module github.com/OplexTech/soloops-cli
 
 go 1.21
 

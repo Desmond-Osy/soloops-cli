@@ -19,7 +19,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/soloops/soloops-cli/pkg/config"
+	"github.com/OplexTech/soloops-cli/pkg/config"
 )
 
 // Generator generates Terraform code from SoloOps configuration

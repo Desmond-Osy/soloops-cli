@@ -19,7 +19,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/soloops/soloops-cli/pkg/config"
+	"github.com/OplexTech/soloops-cli/pkg/config"
 )
 
 func TestConfigLoad(t *testing.T) {

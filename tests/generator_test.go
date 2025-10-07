@@ -20,8 +20,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/soloops/soloops-cli/pkg/config"
-	"github.com/soloops/soloops-cli/pkg/generator"
+	"github.com/OplexTech/soloops-cli/pkg/config"
+	"github.com/OplexTech/soloops-cli/pkg/generator"
 )
 
 func TestGeneratorGenerate(t *testing.T) {
