@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/soloops/soloops-cli/pkg/config"
+	"github.com/OplexTech/soloops-cli/pkg/config"
 	"github.com/spf13/cobra"
 )
 

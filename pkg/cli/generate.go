@@ -17,8 +17,8 @@ package cli
 import (
 	"fmt"
 
-	"github.com/soloops/soloops-cli/pkg/config"
-	"github.com/soloops/soloops-cli/pkg/generator"
+	"github.com/OplexTech/soloops-cli/pkg/config"
+	"github.com/OplexTech/soloops-cli/pkg/generator"
 	"github.com/spf13/cobra"
 )
 

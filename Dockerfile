@@ -29,7 +29,13 @@ RUN CGO_ENABLED=0 GOOS=linux go build \
 FROM alpine:latest
 
 # Install runtime dependencies
-RUN apk add --no-cache ca-certificates terraform
+RUN apk add --no-cache ca-certificates curl unzip && \
+    TERRAFORM_VERSION=1.9.8 && \
+    curl -fsSL "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -o terraform.zip && \
+    unzip terraform.zip && \
+    mv terraform /usr/local/bin/ && \
+    rm terraform.zip && \
+    apk del curl unzip
 
 # Create non-root user
 RUN addgroup -g 1000 soloops && \

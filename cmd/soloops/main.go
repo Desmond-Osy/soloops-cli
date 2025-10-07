@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/soloops/soloops-cli/pkg/cli"
+	"github.com/OplexTech/soloops-cli/pkg/cli"
 )
 
 var (
