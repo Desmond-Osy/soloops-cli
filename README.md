@@ -1,8 +1,8 @@
 # SoloOps CLI
 
-[![CI](https://github.com/soloops/soloops-cli/workflows/CI/badge.svg)](https://github.com/soloops/soloops-cli/actions)
+[![CI](https://github.com/Desmond-Osy/soloops-cli/workflows/CI/badge.svg)](https://github.com/Desmond-Osy/soloops-cli/actions)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Go Report Card](https://goreportcard.com/badge/github.com/soloops/soloops-cli)](https://goreportcard.com/report/github.com/soloops/soloops-cli)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Desmond-Osy/soloops-cli)](https://goreportcard.com/report/github.com/Desmond-Osy/soloops-cli)
 
 SoloOps is a command-line tool for scaffolding, validating, and managing infrastructure blueprints described in a YAML manifest (`soloops.yaml`). It generates Terraform code from your declarative configuration, making it easy to provision cloud resources with best practices built-in.
 
@@ -26,26 +26,26 @@ SoloOps is a command-line tool for scaffolding, validating, and managing infrast
 
 **Linux/macOS:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/soloops/soloops-cli/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Desmond-Osy/soloops-cli/main/scripts/install.sh | bash
 ```
 
 **Windows (PowerShell):**
 ```powershell
-irm https://raw.githubusercontent.com/soloops/soloops-cli/main/scripts/install.ps1 | iex
+irm https://raw.githubusercontent.com/Desmond-Osy/soloops-cli/main/scripts/install.ps1 | iex
 ```
 
 #### Manual Download
 
-Download pre-built binaries from the [releases page](https://github.com/soloops/soloops-cli/releases):
+Download pre-built binaries from the [releases page](https://github.com/Desmond-Osy/soloops-cli/releases):
 
 ```bash
 # Linux (amd64)
-wget https://github.com/soloops/soloops-cli/releases/latest/download/soloops-linux-amd64.tar.gz
+wget https://github.com/Desmond-Osy/soloops-cli/releases/latest/download/soloops-linux-amd64.tar.gz
 tar xzf soloops-linux-amd64.tar.gz
 sudo mv soloops-linux-amd64 /usr/local/bin/soloops
 
 # macOS (Apple Silicon)
-wget https://github.com/soloops/soloops-cli/releases/latest/download/soloops-darwin-arm64.tar.gz
+wget https://github.com/Desmond-Osy/soloops-cli/releases/latest/download/soloops-darwin-arm64.tar.gz
 tar xzf soloops-darwin-arm64.tar.gz
 sudo mv soloops-darwin-arm64 /usr/local/bin/soloops
 
@@ -62,10 +62,10 @@ docker run --rm -v $(pwd):/workspace soloops/soloops-cli:latest init
 #### Build from Source (for developers)
 
 ```bash
-git clone https://github.com/soloops/soloops-cli.git
+git clone https://github.com/Desmond-Osy/soloops-cli.git
 cd soloops-cli
 make build
-# Or: go install github.com/soloops/soloops-cli/cmd/soloops@latest
+# Or: go install github.com/Desmond-Osy/soloops-cli/cmd/soloops@latest
 ```
 
 ### Basic Usage
@@ -239,7 +239,7 @@ Support for managed databases:
 
 ```bash
 # Clone the repository
-git clone https://github.com/soloops/soloops-cli.git
+git clone https://github.com/Desmond-Osy/soloops-cli.git
 cd soloops-cli
 
 # Download dependencies
@@ -273,14 +273,6 @@ make docker-build   # Build Docker image
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-### Code of Conduct
-
-This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
-
-### Security
-
-For security issues, please see [SECURITY.md](SECURITY.md) for our security policy and how to report vulnerabilities.
-
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for release history.
@@ -304,8 +296,8 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 ## Support
 
 - Documentation: [https://soloops.dev/docs](https://soloops.dev/docs)
-- Issues: [GitHub Issues](https://github.com/soloops/soloops-cli/issues)
-- Discussions: [GitHub Discussions](https://github.com/soloops/soloops-cli/discussions)
+- Issues: [GitHub Issues](https://github.com/Desmond-Osy/soloops-cli/issues)
+- Discussions: [GitHub Discussions](https://github.com/Desmond-Osy/soloops-cli/discussions)
 
 ## Acknowledgments
 
