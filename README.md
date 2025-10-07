@@ -20,24 +20,36 @@ SoloOps is a command-line tool for scaffolding, validating, and managing infrast
 
 ### Installation
 
-#### Using pre-built binaries
+**No Go installation required!** Choose your preferred method:
 
-Download the latest release for your platform from the [releases page](https://github.com/soloops/soloops-cli/releases).
+#### One-Line Installer (Recommended)
 
+**Linux/macOS:**
 ```bash
-# Linux/macOS
-curl -L https://github.com/soloops/soloops-cli/releases/latest/download/soloops-$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m) -o soloops
-chmod +x soloops
-sudo mv soloops /usr/local/bin/
-
-# Verify installation
-soloops version
+curl -fsSL https://raw.githubusercontent.com/soloops/soloops-cli/main/scripts/install.sh | bash
 ```
 
-#### Using Go
+**Windows (PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/soloops/soloops-cli/main/scripts/install.ps1 | iex
+```
+
+#### Manual Download
+
+Download pre-built binaries from the [releases page](https://github.com/soloops/soloops-cli/releases):
 
 ```bash
-go install github.com/soloops/soloops-cli/cmd/soloops@latest
+# Linux (amd64)
+wget https://github.com/soloops/soloops-cli/releases/latest/download/soloops-linux-amd64.tar.gz
+tar xzf soloops-linux-amd64.tar.gz
+sudo mv soloops-linux-amd64 /usr/local/bin/soloops
+
+# macOS (Apple Silicon)
+wget https://github.com/soloops/soloops-cli/releases/latest/download/soloops-darwin-arm64.tar.gz
+tar xzf soloops-darwin-arm64.tar.gz
+sudo mv soloops-darwin-arm64 /usr/local/bin/soloops
+
+# Windows: Download soloops-windows-amd64.zip from releases and extract
 ```
 
 #### Using Docker
@@ -45,6 +57,15 @@ go install github.com/soloops/soloops-cli/cmd/soloops@latest
 ```bash
 docker pull soloops/soloops-cli:latest
 docker run --rm -v $(pwd):/workspace soloops/soloops-cli:latest init
+```
+
+#### Build from Source (for developers)
+
+```bash
+git clone https://github.com/soloops/soloops-cli.git
+cd soloops-cli
+make build
+# Or: go install github.com/soloops/soloops-cli/cmd/soloops@latest
 ```
 
 ### Basic Usage
@@ -259,6 +280,10 @@ This project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md). By participatin
 ### Security
 
 For security issues, please see [SECURITY.md](SECURITY.md) for our security policy and how to report vulnerabilities.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for release history.
 
 ## Roadmap
 

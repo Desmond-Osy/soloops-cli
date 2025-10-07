@@ -158,7 +158,7 @@ resource "aws_wafv2_web_acl" "%s" {
     sampled_requests_enabled   = true
   }
 }
-`, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name)
+`, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name, name)
 }
 
 func (g *Generator) generateStaticSite(name string, bp interface{}) string {
