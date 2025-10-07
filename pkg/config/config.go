@@ -31,9 +31,9 @@ type Config struct {
 
 // Environment represents a deployment environment
 type Environment struct {
-	Name      string               `yaml:"name"`
-	Region    string               `yaml:"region"`
-	BudgetUSD float64              `yaml:"budget_usd"`
+	Name       string               `yaml:"name"`
+	Region     string               `yaml:"region"`
+	BudgetUSD  float64              `yaml:"budget_usd"`
 	Blueprints map[string]Blueprint `yaml:"blueprints"`
 }
 
@@ -58,8 +58,8 @@ type Blueprint struct {
 
 // Policies represents security and compliance policies
 type Policies struct {
-	RequireHTTPS   bool `yaml:"require_https,omitempty"`
-	DenyPublicS3   bool `yaml:"deny_public_s3,omitempty"`
+	RequireHTTPS bool `yaml:"require_https,omitempty"`
+	DenyPublicS3 bool `yaml:"deny_public_s3,omitempty"`
 }
 
 // Load reads and parses a soloops.yaml file

@@ -28,8 +28,14 @@ func TestGeneratorGenerate(t *testing.T) {
 	// Create a temporary directory for generated files
 	tmpDir := t.TempDir()
 	originalDir, _ := os.Getwd()
-	defer os.Chdir(originalDir)
-	os.Chdir(tmpDir)
+	defer func() {
+		if err := os.Chdir(originalDir); err != nil {
+			t.Errorf("Failed to change back to original directory: %v", err)
+		}
+	}()
+	if err := os.Chdir(tmpDir); err != nil {
+		t.Fatalf("Failed to change to temp directory: %v", err)
+	}
 
 	cfg := &config.Config{
 		Project: "test-project",
@@ -121,10 +127,14 @@ func TestGeneratorGenerate(t *testing.T) {
 func TestGeneratorDifferentClouds(t *testing.T) {
 	tmpDir := t.TempDir()
 	originalDir, _ := os.Getwd()
-	defer os.Chdir(originalDir)
+	defer func() {
+		if err := os.Chdir(originalDir); err != nil {
+			t.Errorf("Failed to change back to original directory: %v", err)
+		}
+	}()
 
 	tests := []struct {
-		cloud         string
+		cloud            string
 		expectedProvider string
 	}{
 		{"aws", "hashicorp/aws"},
@@ -135,8 +145,12 @@ func TestGeneratorDifferentClouds(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.cloud, func(t *testing.T) {
 			cloudDir := filepath.Join(tmpDir, tt.cloud)
-			os.MkdirAll(cloudDir, 0755)
-			os.Chdir(cloudDir)
+			if err := os.MkdirAll(cloudDir, 0755); err != nil {
+				t.Fatalf("Failed to create cloud directory: %v", err)
+			}
+			if err := os.Chdir(cloudDir); err != nil {
+				t.Fatalf("Failed to change to cloud directory: %v", err)
+			}
 
 			cfg := &config.Config{
 				Project: "test",
